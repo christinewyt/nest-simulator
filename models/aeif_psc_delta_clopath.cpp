@@ -126,7 +126,7 @@ nest::aeif_psc_delta_clopath_dynamics( double, const double y[], double f[], voi
 
   f[ S::U_BAR_MINUS ] = ( -u_bar_minus + V ) / node.P_.tau_minus;
 
-  f[ S::U_BAR_BAR ] = ( -u_bar_bar + u_bar_minus ) / node.P_.tau_bar_bar;
+  f[ S::U_BAR_BAR ] = ( -u_bar_bar + (u_bar_minus- node.P_.E_L)*(u_bar_minus- node.P_.E_L) ) / node.P_.tau_bar_bar;
 
   return GSL_SUCCESS;
 }
